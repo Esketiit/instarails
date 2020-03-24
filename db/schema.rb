@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2020_03_23_155734) do
     t.string "user_name"
     t.string "password_digest"
     t.string "email"
+    t.text "bio"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -25,13 +26,14 @@ ActiveRecord::Schema.define(version: 2020_03_23_155734) do
   create_table "comments", force: :cascade do |t|
     t.integer "account_id"
     t.integer "post_id"
+    t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "followers", force: :cascade do |t|
-    t.integer "account_id"
+  create_table "follows", force: :cascade do |t|
     t.integer "follower_id"
+    t.integer "followee_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
