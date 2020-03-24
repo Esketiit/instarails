@@ -15,8 +15,13 @@ ActiveRecord::Schema.define(version: 2020_03_24_042504) do
   create_table "accounts", force: :cascade do |t|
     t.string "user_name"
     t.string "password_digest"
+
+
+    t.string "email"
+    t.text "bio"
     t.string "first_name"
     t.string "last_name"
+
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_name"], name: "index_accounts_on_user_name", unique: true
@@ -25,13 +30,14 @@ ActiveRecord::Schema.define(version: 2020_03_24_042504) do
   create_table "comments", force: :cascade do |t|
     t.integer "account_id"
     t.integer "post_id"
+    t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "followers", force: :cascade do |t|
-    t.integer "account_id"
+  create_table "follows", force: :cascade do |t|
     t.integer "follower_id"
+    t.integer "followee_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
