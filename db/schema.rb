@@ -10,18 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_24_042504) do
+ActiveRecord::Schema.define(version: 2020_03_25_013815) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "user_name"
     t.string "password_digest"
-
-
     t.string "email"
     t.text "bio"
     t.string "first_name"
     t.string "last_name"
-
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_name"], name: "index_accounts_on_user_name", unique: true
@@ -50,11 +47,13 @@ ActiveRecord::Schema.define(version: 2020_03_24_042504) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string "description"
+    t.integer "account_id", null: false
+    t.text "description"
     t.string "image"
-    t.integer "account_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id"], name: "index_posts_on_account_id"
   end
 
+  add_foreign_key "posts", "accounts"
 end

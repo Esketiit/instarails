@@ -1,11 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  description: 
-  image: 
-  account_id: 1
+  account: one
+  description: MyText
 
 two:
-  description: 
-  image: 
-  account_id: 1
+  account: two
+  description: MyText
