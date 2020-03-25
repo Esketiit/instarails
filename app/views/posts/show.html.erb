@@ -1,0 +1,7 @@
+<h1><%= "All post for #{@account.full_name}" %></h1>
+
+<% @posts.each do |p| %>
+   <%= image_tag(p.image) %>
+   <%= p.description %>
+<% end %>
+

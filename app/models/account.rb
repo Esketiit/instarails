@@ -5,6 +5,8 @@ class Account < ApplicationRecord
     has_many :posts
     has_many :likes
     has_many :comments
+
+    
     
     # this allows an account to see who is following them
     has_many :followed_accounts, foreign_key: :follower_id, class_name: 'Follow'

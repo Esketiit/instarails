@@ -1,5 +1,6 @@
 <h1><%= "all post for #{@account.full_name}" %></h1>
 
 <% @posts.each do |p| %>
-    <%= p.image %>
-<% end %>
+    <%= image_tag(url_for(p.image)) if p.image.attached?%>
+    <%= p.description %>
+    <%end%>
