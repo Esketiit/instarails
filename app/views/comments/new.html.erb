@@ -1,0 +1,8 @@
+<h1>Write a comment!</h1>
+
+<%= form_for @comment do |f| %>
+    <%= f.lable Comment:%>
+    <%= f.text_field :content %>
+
+    <%= f.submit accounts_path %>
+<% end %>
