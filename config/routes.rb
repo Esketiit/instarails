@@ -11,9 +11,12 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   
   resources :accounts
-  resources :followers
-  resources :comments
-  resources :likes
+  # , only: [:show] do
+  #   get 'profile', as: 'profile' 
+  # end
+  # resources :followers
+  # resources :comments
+  # resources :likes
   
  
 

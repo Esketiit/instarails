@@ -4,6 +4,7 @@ helper_method :current_user
   def current_user
     if session[:account_id]
       @current_user ||= Account.find(session[:account_id])
+      # flash[:account_id] = @current_user.id
     else
       @current_user = nil
     end

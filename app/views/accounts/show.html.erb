@@ -1,1 +1,5 @@
-<h1>all post for specific user</h1>
+<h1><%= "all post for #{@account.full_name}" %></h1>
+
+<% @posts.each do |p| %>
+    <%= p.image %>
+<% end %>

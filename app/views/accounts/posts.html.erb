@@ -1,0 +1,5 @@
+<h1><%= "#{@account.full_name}'s posts"%></h1>
+
+<% @posts.each do |p| %>
+    <%= button_to p.description, post_path(p.id)%><br>
+<% end %>

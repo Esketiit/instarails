@@ -4,9 +4,9 @@ class AccountsController < ApplicationController
         @posts = Post.all
 
     end
-    def show
 
-        @account =  Account.find(params[:account_id])
+    def show
+        @account =  Account.find(current_user.id)
         @posts = @account.posts
         #profile, all posts of this specific user
 
