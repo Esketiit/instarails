@@ -1,15 +1,25 @@
 class AccountsController < ApplicationController
     def index
         #feed
+        @posts = Post.all
 
     end
     def show
-        #profile
+
+        @account =  Account.find(params[:account_id])
+        @posts = @account.posts
+        #profile, all posts of this specific user
+
+        # @account = Account.find(params[:id])
+        # @posts = Post.all
+
+        #or
+        #@posts = @account.posts.all? does all work
     end
     
     def new 
         #for sign up
-      
+        @account = Account.new
         end
     
     

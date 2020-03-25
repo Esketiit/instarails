@@ -1,4 +1,9 @@
 <h1>Upload Images</h1>
+<% if flash[:errors] %>
+ <% flash[:errors].each do |e| %>
+        <%= e %>
+<% end %>
+ <% end %> 
 
 <div class="row">
 <div class="col-md-6 offset-md-3">

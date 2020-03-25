@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root to: "public#homepage"
   get "/home" => "accounts#index"
+  get "/profile" => "accounts#show"
   get '/signup', to: 'accounts#new', as: 'signup'
   get '/login', to: 'sessions#new', as: 'login'
   get '/logout', to: 'sessions#destroy', as: 'logout'

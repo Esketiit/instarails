@@ -12,6 +12,13 @@ class PostsController < ApplicationController
         else 
             render :new
         end
+        #post = Post.create(post_params)
+        #if post.valid?
+        #redirect_to account_path(params[:account_id])
+        #else
+        #flash[:errors]= post.errors.full_messages
+        #redirect_to upload_path
+        #
     end
 
     def show
@@ -19,6 +26,6 @@ class PostsController < ApplicationController
     end
 
     def post_params
-        params.require(:post).permit(:image, :description)
+        params.require(:post).permit!
     end
 end
