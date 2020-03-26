@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy', as: 'logout'
   get '/upload', to: 'posts#new'
 
-  resources :posts, only:[:index, :show, :create]
+  resources :posts, only:[:index, :show, :create, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
   
   resources :accounts
