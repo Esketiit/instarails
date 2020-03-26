@@ -15,6 +15,7 @@ class Account < ApplicationRecord
     has_many :following_accounts, foreign_key: :followee_id, class_name: 'Follow'
     has_many :followers, through: :following_accounts
     validates :user_name, presence:true, uniqueness:true
+    validates :user_name, length: {minimum: 2}
     def full_name
         "#{self.first_name} #{self.last_name}"
     end

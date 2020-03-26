@@ -1,0 +1,10 @@
+<h1><%="Account details for #{@account.user_name}"%></h1>
+
+
+<h3><%= "all post for #{@account.user_name}" %></h3>
+
+<% @posts.each do |p| %>
+    <%= p.description %><br>
+<% end %>
+
+<%= params.inspect %>

@@ -1,0 +1,5 @@
+<h1><%= "Everyone #{@account.user_name} is following" %></h1>
+
+<% @account.followees.each do |followee| %>
+    <%= followee.user_name %><br>
+<% end %>
