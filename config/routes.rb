@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get '/followees/:id', to: 'accounts#followees', as: 'followees'
   
 
-  resources :posts, only:[:index, :show, :create]
+  resources :posts, only:[:index, :show, :create, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
   resources :follows, only: [:new, :create, :destroy]
   resources :accounts

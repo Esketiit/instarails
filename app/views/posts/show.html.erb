@@ -8,14 +8,16 @@
 </div>
 
 <div class="col-md-3">
-<%= link_to @post.account.first_name.capitalize, profile_path(@post.account.user_name)%>
+<%= link_to @post.account.first_name.capitalize, profile_path%>
 
 <p class="border-top mt-3 py-2">
 <%if @post.description.present? %>
 <%= @post.description %><br>
+
 <% end %><br>
 <span class="text-muted"><%= time_ago_in_words @post.created_at %> ago</span>
 </p>
+<%= link_to "Delete", post_path(@post), method: :delete %>
 </div>
 </div>
 
