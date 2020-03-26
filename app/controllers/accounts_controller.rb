@@ -6,6 +6,11 @@ class AccountsController < ApplicationController
 
     def followees
         @account =  Account.find(current_user.id)
+        @posts = @account.posts
+    end
+
+    def visit
+        @account =  Account.find(current_user.id)
     end
     
     def index
@@ -20,7 +25,7 @@ class AccountsController < ApplicationController
     
     def new 
         @account = Account.new
-        end
+    end
     
     
     def create
@@ -28,11 +33,12 @@ class AccountsController < ApplicationController
         if @account.save
             flash[:notice] = "You signed up successfully"
             flash[:color]= "valid"
+            redirect_to root_path
         else
             flash[:notice] = "Form is invalid"
             flash[:color]= "invalid"
+            redirect_to root_path
         end
-        render "new"
     end
 
     def edit
@@ -49,6 +55,24 @@ class AccountsController < ApplicationController
             redirect_to edit_account_path(@account.id)
         end
 
+    end
+
+    def destroy
+        @account = Account.find(params[:id])
+        @account.posts.each do |p|
+            p.delete
+        end
+
+        @account.followers.each do |f|
+            f.delete
+        end
+
+        @account.followees.each do |f|
+            f.delete
+        end
+        @account.delete
+        session[:account_id] = nil
+        redirect_to root_path
     end
 
     def account_params
