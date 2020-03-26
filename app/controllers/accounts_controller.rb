@@ -10,7 +10,8 @@ class AccountsController < ApplicationController
     end
 
     def visit
-        @account =  Account.find(current_user.id)
+        @account =  Account.find(params[:id])
+        @posts = @account.posts
     end
     
     def index

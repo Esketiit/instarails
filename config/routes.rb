@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/followers/:id', to: 'accounts#followers', as: 'followers'
   get '/followees/:id', to: 'accounts#followees', as: 'followees'
   get '/visit/:id', to: 'accounts#visit', as: 'visit'
+  get '/follow/:followee_id', to: 'followers#new', as: 'follow'
   
 
   resources :posts, only:[:index, :show, :create, :destroy]

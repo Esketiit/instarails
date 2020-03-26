@@ -6,7 +6,8 @@
 </div>
 <div class="col-8 text-left">
     <h1><%=@account.user_name.capitalize%></h1>
-    <%=link_to "Edit Profile", edit_account_path(@account.id) %>
+    <%=link_to "Edit Profile", edit_account_path(@account.id) %><br>
+    <%= link_to "Find someone to Follow", follow_path(@account.id) %>
         <div class="profile-stats"><%=@account.posts.count%> posts</div>
         <div class="profile-stats"> <%=@account.followers.length%> <%= link_to "followers", followers_path(@account.id) %></div>
         <div class="profile-stats"> <%=@account.followees.length%> <%= link_to "following", followees_path(@account.id) %></div>

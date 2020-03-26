@@ -1,7 +1,8 @@
 class FollowersController < ApplicationController
 
     def new
-
+        @follow = Follow.new
+        @follow.followee_id = params[:id]
     end
 
     def create

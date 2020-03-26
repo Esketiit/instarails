@@ -8,7 +8,7 @@
 </div>
 
 <div class="col-md-3">
-<%= link_to @post.account.first_name.capitalize, profile_path%>
+<%= link_to @post.account.first_name.capitalize, visit_path(@post.account_id)%>
 
 <p class="border-top mt-3 py-2">
 <%if @post.description.present? %>
