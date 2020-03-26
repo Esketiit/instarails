@@ -1,7 +1,21 @@
-<h1><%= "All post for #{@account.full_name}" %></h1>
+<div class="row">
+   <div class="col-md-9">
+     <div class="card">
+      <div class="card-body p-2">
+      <%= image_tag url_for(@post.image), class: 'd-block w-100'%>
+      </div>
+   </div>
+</div>
 
-<% @posts.each do |p| %>
-   <%= image_tag(p.image) %>
-   <%= p.description %>
-<% end %>
+<div class="col-md-3">
+<%= link_to @post.account.first_name.capitalize, profile_path(@post.account.user_name)%>
+
+<p class="border-top mt-3 py-2">
+<%if @post.description.present? %>
+<%= @post.description %><br>
+<% end %><br>
+<span class="text-muted"><%= time_ago_in_words @post.created_at %> ago</span>
+</p>
+</div>
+</div>
 

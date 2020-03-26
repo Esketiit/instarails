@@ -23,7 +23,7 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #090808;">
   <div class="container">
-    <a class="navbar-brand mx-auto" href="/"> Intsarails  📸</a>
+    <a class="navbar-brand mx-auto" href="/"> 🅸🅽🆂🆃🅰🆁🅰🅸🅻🆂</a>
    
     <div class="collapse navbar-collapse" id="navbarResponsive">
     <ul class="navbar-nav">
@@ -37,12 +37,13 @@
       </ul>
   </ul>
   <ul class="nav navbar-nav navbar-right">
+  <li class="nav-item">
+    <a class="nav-link" href="/profile"><%= current_user.first_name.capitalize %> <%=current_user.last_name.capitalize%></a>
+  </li>
   <li>
     <a class="nav-link" href="/upload">New Post</a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="/profile"><%= current_user.first_name %> <%=current_user.last_name%></a>
-  </li>
+  
   <li class="nav-item">
   <a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
   </li>
