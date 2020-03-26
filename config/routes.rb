@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/upload', to: 'posts#new'
   get '/followers/:id', to: 'accounts#followers', as: 'followers'
   get '/followees/:id', to: 'accounts#followees', as: 'followees'
+  get '/visit/:id', to: 'accounts#visit', as: 'visit'
   
 
   resources :posts, only:[:index, :show, :create, :destroy]

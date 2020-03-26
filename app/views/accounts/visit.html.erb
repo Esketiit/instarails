@@ -1,0 +1,31 @@
+<div class= "row">
+<div class="col-4">
+<h1>img</h1>
+<%=link_to "Add Profile Picture" %>
+</div>
+<div class="col-8 text-left">
+    <h1><%=@account.user_name.capitalize%></h1>
+        <div class="profile-stats"><%=@account.posts.count%> posts</div>
+        <div class="profile-stats"> <%=@account.followers.length%> <%= link_to "followers", followers_path(@account.id) %></div>
+        <div class="profile-stats"> <%=@account.followees.length%> <%= link_to "following", followees_path(@account.id) %></div><br>
+
+        <p> Full Name: <%=@account.full_name%> </p>
+        <p> Bio: <%=@account.bio %></p>
+    
+    </div>
+ </div>
+
+ <div class="card-columns">
+ <% if @posts %>
+ <% @posts.each do |p| %>
+<div class="card">
+<div class="card-body p-1">
+<%if p.image.attached?%>
+<%= image_tag url_for(p.image), class: 'd-block w-100' %>
+<%= link_to "View Image", post_path(p), class: 'btn btn-secondary'%>
+<%end%>
+</div>
+</div>
+<%end%>
+</div>
+<% end %>
