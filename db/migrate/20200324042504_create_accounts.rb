@@ -4,7 +4,7 @@ class CreateAccounts < ActiveRecord::Migration[6.0]
       t.string :user_name
       t.string :password_digest
 
-
+      t.string :image
       t.string :email
       t.text :bio
       t.string :first_name

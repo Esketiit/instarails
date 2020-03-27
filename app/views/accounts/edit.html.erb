@@ -13,7 +13,16 @@
     <%= f.label "Current Bio:" %><br>
     <%= f.text_area :bio, :value => @account.bio%><br>
 
+    <div class="form-group">
+    <%=f.label :image%>
+    <%=f.file_field :image, class: 'form-control'%>
+    </div>
+
     <%= f.submit "Update Profile"%>
+
 <% end %>
 
 <%= link_to "Delete This Account", account_path(@account.id), :method => :delete %>
+
+
+

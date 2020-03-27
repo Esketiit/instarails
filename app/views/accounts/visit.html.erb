@@ -1,20 +1,25 @@
+
+<div class= "container">
 <div class= "row">
 <div class="col-4">
-<h1>img</h1>
-<%=link_to "Add Profile Picture" %>
+<%if @account.image.attached?%>
+<%=image_tag url_for(@account.image), width: "200px", class: "rounded-circle"%>
+<%end%>
 </div>
+
+
 <div class="col-8 text-left">
     <h1><%=@account.user_name.capitalize%></h1>
         <div class="profile-stats"><%=@account.posts.count%> posts</div>
-        <div class="profile-stats"> <%=@account.followers.length%> <%= link_to "followers", followers_path(@account.id) %></div>
-        <div class="profile-stats"> <%=@account.followees.length%> <%= link_to "following", followees_path(@account.id) %></div><br>
-
-        <p> Full Name: <%=@account.full_name%> </p>
+        <div class="profile-stats"> <%=@account.followers.length%> <%= link_to "followers", followers_path(@account.id), class: "text-dark" %></div>
+        <div class="profile-stats"> <%=@account.followees.length%> <%= link_to "following", followees_path(@account.id), class: "text-dark" %></div><br>
+        <p> <p><br>
+        <p><%=@account.full_name%> </p>
         <p> Bio: <%=@account.bio %></p>
     
     </div>
  </div>
-
+ <p class="border-top mt-3 py-2"><br>
  <div class="card-columns">
  <% if @posts %>
  <% @posts.each do |p| %>

@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2020_03_25_200132) do
   create_table "accounts", force: :cascade do |t|
     t.string "user_name"
     t.string "password_digest"
+    t.string "image"
     t.string "email"
     t.text "bio"
     t.string "first_name"
