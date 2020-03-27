@@ -34,11 +34,11 @@ class AccountsController < ApplicationController
         if @account.save
             flash[:notice] = "You signed up successfully"
             flash[:color]= "valid"
-            redirect_to root_path
+            redirect_to login_path
         else
             flash[:notice] = "Form is invalid"
             flash[:color]= "invalid"
-            redirect_to root_path
+            redirect_to signup_path
         end
     end
 

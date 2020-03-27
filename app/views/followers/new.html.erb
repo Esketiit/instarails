@@ -1,5 +1,16 @@
 <h1>Choose someone to follow</h1>
+<% if flash[:errors] %>
+ <% flash[:errors].each do |e| %>
+        <%= e %>
+<% end %>
+ <% end %> 
 
+<%= form_for @follow do |f| %>
+    <%= f.label "Pick an account to follow:" %><br>
+    <% f.number_field :followee_id, :value =>  params[:followee_id]%><br>
+    <%= f.collection_select :followee_id, Account.all, :id, :user_name %>
 
+    <%=f.submit "follow this account"%>
+<% end %>
 
 <%= params.inspect %>
