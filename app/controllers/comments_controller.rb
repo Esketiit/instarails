@@ -5,13 +5,26 @@ class CommentsController < ApplicationController
     end
 
     def create
-       #@comment = Comment.create(comment_params)
-       #@comment.account_id = current_user.id 
-        @comment = Comment.create(comments_params)
-       if @comment.valid?
+       
+        @comment = Comment.new(comments_params)
+        @comment.account_id = current_user.id
+       if @comment.save
         redirect_to home_path
-       else redirect_to home_path
+       else
+         redirect_to home_path
        end
+       
+    end
+
+    def destroy
+        @comment = Comment.find(post_id: params[:post_id])
+        @comment.destroy
+       redirect_to(@comment.post)
+
+        # @post = Post.find(params[:post_id])
+        # @comment = @post.comments.find(params[:id])
+        # @comment.destroy
+        # redirect_to post_path(@post)
     end
 
     # def edit
@@ -27,6 +40,6 @@ class CommentsController < ApplicationController
     # end
     private
     def comments_params
-    params.require(:comment).permit!
+    params.require(:comment).permit(:comment,:post_id)
     end
 end

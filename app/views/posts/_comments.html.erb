@@ -1,6 +1,8 @@
+
 <%post.comments.each do |comment|%>
     <div class="comment">
-    <strong><%=comment.account.user_name%></strong>
+    <strong><%= link_to comment.account.user_name.capitalize, visit_path(comment.account_id), class: "text-dark"%></strong>
+ 
     <%= comment.comment%>
     </div>
     <%end%>
