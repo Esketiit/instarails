@@ -42,8 +42,7 @@ class AccountsController < ApplicationController
             flash[:color]= "valid"
             redirect_to login_path
         else
-            flash[:notice] = "Form is invalid"
-            flash[:color]= "invalid"
+            flash[:errors] = @account.errors.full_messages 
             redirect_to signup_path
         end
     end

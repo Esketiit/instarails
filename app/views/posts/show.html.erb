@@ -24,7 +24,7 @@
     <div class="comment-sec">
    <%= form_for @comment do |f|%>
    <%= f.hidden_field :post_id, value: @post.id%>
-      <%=f.text_field :content, placeholder: "Add comment..."%>
+      <%=f.text_field :comment, placeholder: "Add comment..."%>
       <%=f.submit "Post", class: "btn btn-success float-right"%>
       <%end%>
     </div>

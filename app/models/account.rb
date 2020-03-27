@@ -17,6 +17,8 @@ class Account < ApplicationRecord
     has_many :followers, through: :following_accounts
     validates :user_name, presence:true, uniqueness:true
     validates :user_name, length: {minimum: 2}
+    validates :first_name, presence:true
+    validates :password, presence:true
     def full_name
         "#{self.first_name} #{self.last_name}"
     end
