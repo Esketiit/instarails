@@ -2,17 +2,16 @@ class FollowersController < ApplicationController
 
     def new
         @follow = Follow.new
-        @follow.followee_id = params[:id]
     end
 
     def create
-        follow = @follow.create(params[:id])
+        follow = Follow.create(followee_id: params[:follow][:followee_id], follower_id: current_user.id)
 
         if follow.valid?
-            redirect_to accounts_path
+            redirect_to profile_path
         else
             flash[:errors] = follow.errors.full_messages
-            redirect_to accounts_path
+            redirect_to follow_path
         end
     end
 
