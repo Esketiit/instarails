@@ -13,6 +13,11 @@
         <div class="profile-stats"><%=@account.posts.count%> posts</div>
         <div class="profile-stats"> <%=@account.followers.length%> <%= link_to "followers", followers_path(@account.id), class: "text-dark" %></div>
         <div class="profile-stats"> <%=@account.followees.length%> <%= link_to "following", followees_path(@account.id), class: "text-dark" %></div><br>
+        <% if Follow.all.find{|follow| follow.follower_id == current_user.id and follow.followee_id == params[:id].to_i} %>
+            <%="You follow this account"%>
+        <%else%>
+            <%=link_to "Follow this account", follows_path(params[:id]), :method => :post%>
+        <%end%>
         <p> <p><br>
         <p><%=@account.full_name%> </p>
         <p> Bio: <%=@account.bio %></p>

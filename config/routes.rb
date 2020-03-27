@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get '/followees/:id', to: 'accounts#followees', as: 'followees'
   get '/visit/:id', to: 'accounts#visit', as: 'visit'
   get '/follow/', to: 'followers#new', as: 'follow'
-  post '/follow/', to: 'followers#create', as: 'follows'
+  post '/follow/:followee_id', to: 'followers#create', as: 'follows'
   resources :comments, only:[:create]
   resources :posts do
     resources :likes

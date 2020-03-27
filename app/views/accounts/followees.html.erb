@@ -1,5 +1,14 @@
-<h1><%= "Everyone #{@account.user_name} is following" %></h1>
+<% if params[:id].to_i == current_user.id %>
+    <h1><%= "Everyone #{@account.user_name} is following" %></h1>
 
-<% @account.followees.each do |followee| %>
-    <%= followee.user_name %><br>
-<% end %>
+    <% @account.followees.each do |followee| %>
+        <%= link_to followee.user_name, visit_path(followee.id) %><br>
+    <% end %>
+    <%else%>
+        <% @account = Account.find(params[:id]) %>
+        <% @account.followees.each do |followee| %>
+            <%= link_to followee.user_name, visit_path(followee.id) %><br>
+        <% end %>
+<%end%>
+
+

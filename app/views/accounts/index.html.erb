@@ -1,7 +1,7 @@
 
 <div class="container">
 <div class="row">
- <div class="col-8">
+<div class="col-8">
 <% @posts.each do |post|%>
    
    <%if post.account != current_user%>
@@ -10,20 +10,17 @@
    <%= link_to post.account.user_name.capitalize, visit_path(post.account_id), class: "text-dark"%>
 
    </div>
-       <%=image_tag url_for(post.image), class: "d-block w-100"%>
-    <div class="post-details">
-    <p><strong><%= link_to post.account.user_name.capitalize, visit_path(post.account_id), class: "text-dark"%></strong></p>
-    <%=simple_format post.description%>
-    <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+      <%=image_tag url_for(post.image), class: "d-block w-100"%>
+   <div class="post-details">
+   <p><strong><%= link_to post.account.user_name.capitalize, visit_path(post.account_id), class: "text-dark"%></strong></p>
+   <%=simple_format post.description%>
+   <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
 <% pre_like = post.likes.find { |like| like.account_id == current_user.id} %>
 <% if pre_like %>
   <%= button_to 'Unlike', post_like_path(post, pre_like), method: :delete %>
 <% else %>
   <%= button_to 'Like', post_likes_path(post), method: :post %>
 <% end %><br>
-
-
-    
    
    <p class="text-muted"><%= time_ago_in_words post.created_at %> ago</p>
    <p class="border-top mt-3 py-2">
@@ -31,9 +28,9 @@
     </div>
     <div class="comment-sec">
    <%= form_for @comment do |f|%>
-   <%= f.hidden_field :post_id, value: post.id%>
+      <%= f.hidden_field :post_id, value: post.id%>
       <%=f.text_field :comment, placeholder: "Add comment..."%>
-      <%=f.submit "Post", class: "btn btn-info float-right"%>
+      <%=f.submit "Post", class: "btn btn-success float-right"%>
       <%end%>
     </div>
    </div>
@@ -43,6 +40,5 @@
 </div>
 </div>
 
-   
 
 
