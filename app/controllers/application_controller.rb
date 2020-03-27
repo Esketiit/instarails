@@ -5,7 +5,7 @@ helper_method :current_user
     # Use this line if you get stuck in a session(?)
     #   
     if session[:account_id]
-      @current_user ||= Account.find(session[:account_id])
+      @current_user ||= Account.find_by(id:session[:account_id])
       # flash[:account_id] = @current_user.id
     else
       @current_user = nil

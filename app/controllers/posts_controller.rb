@@ -22,7 +22,7 @@ class PostsController < ApplicationController
     end
 
     def show
-        @post = Post.find(params[:id])
+        @post = Post.find(params[:id]) 
     end
 
     def destroy 
@@ -32,6 +32,6 @@ class PostsController < ApplicationController
     end
 private
     def post_params
-        params.require(:post).permit!()
+        params.require(:post).permit!
     end
 end

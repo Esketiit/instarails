@@ -15,9 +15,13 @@
 <%= @post.description %><br>
 
 <% end %><br>
+<p><%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
 <span class="text-muted"><%= time_ago_in_words @post.created_at %> ago</span>
 </p>
+
+<%if @post.account == current_user%>
 <%= link_to "Delete", post_path(@post), method: :delete %>
+<%end%>
 </div>
 </div>
 

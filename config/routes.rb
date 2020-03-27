@@ -11,7 +11,10 @@ Rails.application.routes.draw do
   get '/visit/:id', to: 'accounts#visit', as: 'visit'
   get '/follow/', to: 'followers#new', as: 'follow'
   post '/follow/', to: 'followers#create', as: 'follows'
-  
+  resources :comments, only:[:create]
+  resources :posts do
+    resources :likes
+  end
   
   resources :posts, only:[:index, :show, :create, :destroy]
   resources :sessions, only: [:new, :create, :destroy]

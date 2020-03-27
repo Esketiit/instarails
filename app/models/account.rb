@@ -1,9 +1,9 @@
 class Account < ApplicationRecord
-
+    
     has_secure_password
 
     has_many :posts
-    has_many :likes
+    has_many :likes, dependent: :destroy
     has_many :comments
     has_one_attached :image
 
