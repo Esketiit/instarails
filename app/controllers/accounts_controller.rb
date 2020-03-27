@@ -15,7 +15,13 @@ class AccountsController < ApplicationController
     end
     
     def index
-        @posts = Post.all
+        @test = Account.find(current_user.id).followees
+        @posts = []
+        @test.each do |account|
+            account.posts.each do |post|
+                @posts << post
+            end
+        end
         @comment = Comment.new
     end
 
